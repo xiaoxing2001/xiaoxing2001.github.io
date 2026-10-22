@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>英文名字体对比 — Xiaoxing Hu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@700&family=EB+Garamond:wght@700&family=Lora:wght@700&family=Raleway:wght@700&family=Josefin+Sans:wght@700&family=Crimson+Pro:wght@700&family=DM+Serif+Display&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: hsl(220, 18%, 97%);
+    --surface: #fff;
+    --border: hsl(220, 12%, 88%);
+    --border-active: hsl(216, 52%, 60%);
+    --text: hsl(220, 15%, 18%);
+    --muted: hsl(220, 10%, 52%);
+    --accent: hsl(216, 52%, 40%);
+    --accent-bg: hsl(216, 55%, 94%);
+    --current: hsl(120, 40%, 92%);
+    --current-text: hsl(120, 50%, 28%);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    color: var(--text);
+    padding: 48px 24px 72px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  header h1 {
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  header p { font-size: .88rem; color: var(--muted); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: box-shadow .15s, border-color .15s, transform .1s;
+    user-select: none;
+  }
+  .card:hover {
+    border-color: var(--border-active);
+    box-shadow: 0 4px 20px hsl(216 40% 10% / .10);
+    transform: translateY(-1px);
+  }
+  .card.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px hsl(216 52% 40% / .15);
+  }
+
+  /* Full name display */
+  .name-en {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    color: hsl(220, 15%, 15%);
+    text-align: center;
+  }
+  /* Chinese name alongside, using Zhi Mang Xing */
+  .name-zh {
+    font-family: 'Zhi Mang Xing', cursive;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111;
+    margin-left: 6px;
+  }
+
+  .name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* h1-like context preview */
+  .context-label {
+    font-size: .72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 2px;
+  }
+  .context-block {
+    width: 100%;
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  .context-affil {
+    font-size: .78rem;
+    color: var(--muted);
+    margin-top: 3px;
+    font-family: -apple-system, sans-serif;
+  }
+
+  .meta { text-align: center; }
+  .font-label { font-size: .93rem; font-weight: 600; }
+  .font-sub { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+  .tag {
+    display: inline-block;
+    font-size: .7rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+  .tag.current { background: var(--current); color: var(--current-text); }
+
+  #selection {
+    text-align: center;
+    margin-top: 28px;
+    font-size: .9rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-height: 1.4em;
+  }
+  footer {
+    text-align: center;
+    margin-top: 36px;
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>英文名字体对比</h1>
+  <p>每张卡片同时展示了英文名在 h1 标题中的实际效果，点击选中</p>
+</header>
+
+<div class="grid">
+
+  <!-- 1. System default -->
+  <div class="card" onclick="pick(this, '系统默认字体（-apple-system / Segoe UI）')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:-apple-system,'Segoe UI',sans-serif;font-weight:700">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:-apple-system,'Segoe UI',sans-serif;font-weight:700;font-size:1.5rem;line-height:1.25;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.85em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">系统默认</div>
+      <div class="font-sub">-apple-system / Segoe UI</div>
+      <span class="tag current">当前使用</span>
+    </div>
+  </div>
+
+  <!-- 2. Playfair Display -->
+  <div class="card" onclick="pick(this, 'Playfair Display — 优雅学术衬线')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:'Playfair Display',serif">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.25;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.85em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">Playfair Display</div>
+      <div class="font-sub">Google Fonts · 衬线</div>
+      <span class="tag">优雅 · 学术感</span>
+    </div>
+  </div>
+
+  <!-- 3. Cormorant Garamond -->
+  <div class="card" onclick="pick(this, 'Cormorant Garamond — 精致高端衬线')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:'Cormorant Garamond',serif;font-size:2.2rem">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.8rem;line-height:1.2;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.72em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">Cormorant Garamond</div>
+      <div class="font-sub">Google Fonts · 高端衬线</div>
+      <span class="tag">精致 · 文艺</span>
+    </div>
+  </div>
+
+  <!-- 4. EB Garamond -->
+  <div class="card" onclick="pick(this, 'EB Garamond — 古典学术衬线')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:'EB Garamond',serif;font-size:2rem">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:'EB Garamond',serif;font-weight:700;font-size:1.6rem;line-height:1.25;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.78em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">EB Garamond</div>
+      <div class="font-sub">Google Fonts · 古典衬线</div>
+      <span class="tag">古典 · 学院派</span>
+    </div>
+  </div>
+
+  <!-- 5. DM Serif Display -->
+  <div class="card" onclick="pick(this, 'DM Serif Display — 现代大标题衬线')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:'DM Serif Display',serif;font-weight:400">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:'DM Serif Display',serif;font-weight:400;font-size:1.5rem;line-height:1.25;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.85em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">DM Serif Display</div>
+      <div class="font-sub">Google Fonts · 现代衬线</div>
+      <span class="tag">现代 · 有力</span>
+    </div>
+  </div>
+
+  <!-- 6. Lora -->
+  <div class="card" onclick="pick(this, 'Lora — 均衡可读衬线')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:'Lora',serif">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:'Lora',serif;font-weight:700;font-size:1.5rem;line-height:1.25;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.85em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">Lora</div>
+      <div class="font-sub">Google Fonts · 均衡衬线</div>
+      <span class="tag">稳重 · 易读</span>
+    </div>
+  </div>
+
+  <!-- 7. Raleway -->
+  <div class="card" onclick="pick(this, 'Raleway — 优雅几何无衬线')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:'Raleway',sans-serif">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1.5rem;line-height:1.25;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.85em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">Raleway</div>
+      <div class="font-sub">Google Fonts · 无衬线</div>
+      <span class="tag">优雅 · 现代感</span>
+    </div>
+  </div>
+
+  <!-- 8. Crimson Pro -->
+  <div class="card" onclick="pick(this, 'Crimson Pro — 文学感衬线')">
+    <div class="name-row">
+      <span class="name-en" style="font-family:'Crimson Pro',serif;font-size:2.1rem">Xiaoxing Hu</span>
+      <span class="name-zh">胡霄星</span>
+    </div>
+    <div class="context-block">
+      <div class="context-label">页面实际效果</div>
+      <div style="font-family:'Crimson Pro',serif;font-weight:700;font-size:1.7rem;line-height:1.25;color:#111">Xiaoxing Hu<span class="name-zh" style="font-size:.75em">胡霄星</span></div>
+      <div class="context-affil">Ph.D. Student · Shanghai Jiao Tong University</div>
+    </div>
+    <div class="meta">
+      <div class="font-label">Crimson Pro</div>
+      <div class="font-sub">Google Fonts · 文学衬线</div>
+      <span class="tag">文学 · 细腻</span>
+    </div>
+  </div>
+
+</div>
+
+<div id="selection">点击卡片查看字体名称</div>
+
+<footer>
+  所有字体均从 Google Fonts 加载，跨平台显示一致。<br>
+  每张卡片内含实际页面效果预览，展示英文名与「胡霄星」并排时的视觉感受。
+</footer>
+
+<script>
+  function pick(card, name) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    document.getElementById('selection').textContent = '已选中：' + name;
+  }
+</script>
+</body>
+</html>

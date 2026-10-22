@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>行书字体对比 — 胡霄星</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Long+Cang&family=Liu+Jian+Mao+Cao&family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: hsl(40,18%,97%);
+    --surface: #fff;
+    --border: hsl(40,12%,88%);
+    --text: hsl(220,15%,18%);
+    --muted: hsl(220,10%,52%);
+    --accent: hsl(216,52%,40%);
+    --accent-bg: hsl(216,55%,94%);
+    --active-border: hsl(216,52%,60%);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", sans-serif;
+    color: var(--text);
+    padding: 48px 24px 72px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  header h1 {
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  header p {
+    font-size: .88rem;
+    color: var(--muted);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 16px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: box-shadow .15s, border-color .15s, transform .1s;
+    user-select: none;
+  }
+  .card:hover {
+    border-color: var(--active-border);
+    box-shadow: 0 4px 20px hsl(216 40% 10% / .10);
+    transform: translateY(-1px);
+  }
+  .card.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px hsl(216 52% 40% / .15);
+  }
+  .name {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #111;
+  }
+  /* Context preview: how it looks alongside English name */
+  .context {
+    font-size: .9rem;
+    color: var(--muted);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .context .en { font-family: -apple-system, sans-serif; font-size: .9rem; }
+  .context .zh { font-size: 1.1rem; font-weight: 700; color: #111; }
+  .meta { text-align: center; }
+  .font-label { font-size: .95rem; font-weight: 600; }
+  .font-sub { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+  .tag {
+    display: inline-block;
+    font-size: .72rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 6px;
+  }
+  .current { background: hsl(120 40% 92%); color: hsl(120 50% 28%); }
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: .82rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  #selection {
+    text-align: center;
+    margin-top: 28px;
+    font-size: .9rem;
+    color: var(--accent);
+    font-weight: 500;
+    min-height: 1.4em;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>行书 / 草书字体对比</h1>
+  <p>点击卡片选中，看看哪款最合适</p>
+</header>
+
+<div class="grid">
+
+  <div class="card" onclick="pick(this,'Zhi Mang Xing（知芒行书）')">
+    <div class="name" style="font-family:'Zhi Mang Xing',cursive">胡霄星</div>
+    <div class="context">
+      <span class="en">Xiaoxing Hu</span>
+      <span class="zh" style="font-family:'Zhi Mang Xing',cursive">胡霄星</span>
+    </div>
+    <div class="meta">
+      <div class="font-label">知芒行书</div>
+      <div class="font-sub">Zhi Mang Xing · Google Fonts</div>
+      <span class="tag current">行书 · 当前使用</span>
+    </div>
+  </div>
+
+  <div class="card" onclick="pick(this,'Long Cang（龙藏行草）')">
+    <div class="name" style="font-family:'Long Cang',cursive">胡霄星</div>
+    <div class="context">
+      <span class="en">Xiaoxing Hu</span>
+      <span class="zh" style="font-family:'Long Cang',cursive">胡霄星</span>
+    </div>
+    <div class="meta">
+      <div class="font-label">龙藏</div>
+      <div class="font-sub">Long Cang · Google Fonts</div>
+      <span class="tag">行草 · 连笔感强</span>
+    </div>
+  </div>
+
+  <div class="card" onclick="pick(this,'Liu Jian Mao Cao（刘建毛草）')">
+    <div class="name" style="font-family:'Liu Jian Mao Cao',cursive">胡霄星</div>
+    <div class="context">
+      <span class="en">Xiaoxing Hu</span>
+      <span class="zh" style="font-family:'Liu Jian Mao Cao',cursive">胡霄星</span>
+    </div>
+    <div class="meta">
+      <div class="font-label">刘建毛草</div>
+      <div class="font-sub">Liu Jian Mao Cao · Google Fonts</div>
+      <span class="tag">草书 · 最飘逸</span>
+    </div>
+  </div>
+
+  <div class="card" onclick="pick(this,'Ma Shan Zheng（马善政楷书）')">
+    <div class="name" style="font-family:'Ma Shan Zheng',cursive">胡霄星</div>
+    <div class="context">
+      <span class="en">Xiaoxing Hu</span>
+      <span class="zh" style="font-family:'Ma Shan Zheng',cursive">胡霄星</span>
+    </div>
+    <div class="meta">
+      <div class="font-label">马善政楷书</div>
+      <div class="font-sub">Ma Shan Zheng · Google Fonts</div>
+      <span class="tag">楷书偏行 · 端正</span>
+    </div>
+  </div>
+
+  <div class="card" onclick="pick(this,'ZCOOL QingKe HuangYou（站酷庆科黄油体）')">
+    <div class="name" style="font-family:'ZCOOL QingKe HuangYou',cursive">胡霄星</div>
+    <div class="context">
+      <span class="en">Xiaoxing Hu</span>
+      <span class="zh" style="font-family:'ZCOOL QingKe HuangYou',cursive">胡霄星</span>
+    </div>
+    <div class="meta">
+      <div class="font-label">站酷庆科黄油体</div>
+      <div class="font-sub">ZCOOL QingKe HuangYou · Google Fonts</div>
+      <span class="tag">现代书法 · 圆润</span>
+    </div>
+  </div>
+
+  <div class="card" onclick="pick(this,'STXingkai（华文行楷，macOS 系统字体）')">
+    <div class="name" style="font-family:'STXingkai','华文行楷',cursive">胡霄星</div>
+    <div class="context">
+      <span class="en">Xiaoxing Hu</span>
+      <span class="zh" style="font-family:'STXingkai','华文行楷',cursive">胡霄星</span>
+    </div>
+    <div class="meta">
+      <div class="font-label">华文行楷</div>
+      <div class="font-sub">STXingkai · macOS 系统字体</div>
+      <span class="tag">行楷 · 仅 macOS 可见</span>
+    </div>
+  </div>
+
+</div>
+
+<div id="selection">点击卡片查看选中字体名称</div>
+
+<footer>
+  前五种字体从 Google Fonts 加载，跨平台显示一致。<br>
+  「华文行楷」为 macOS 系统字体，Windows / Linux 会回退到浏览器默认 cursive。<br>
+  每张卡片同时展示了字体在姓名旁边的实际效果，便于对比。
+</footer>
+
+<script>
+  function pick(card, name) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    document.getElementById('selection').textContent = '已选中：' + name;
+  }
+</script>
+</body>
+</html>

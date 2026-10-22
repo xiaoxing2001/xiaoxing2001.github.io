@@ -1,0 +1,198 @@
+% !TEX program = xelatex
+% ---------------------------------------------------------------------------
+%  胡霄星 · 学术简历（中文版）
+%  编译：xelatex CV-zh.tex
+% ---------------------------------------------------------------------------
+\documentclass[a4paper,11pt]{ctexart}
+
+\usepackage[left=1.75cm,right=1.75cm,top=1.6cm,bottom=1.6cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{needspace}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{linkcolor=black, urlcolor=black, citecolor=black}
+
+% ── 配色 ────────────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{000000}
+\definecolor{muted}{HTML}{000000}
+\definecolor{rule}{HTML}{000000}
+
+% ── 字体 ────────────────────────────────────────────────────────────────────
+\setCJKmainfont{Songti SC}[BoldFont=Songti SC Bold]
+\newCJKfontfamily\xingkai{行楷-简}[BoldFont=行楷-简 粗体]
+\setmainfont{Charter}[
+  BoldFont       = Charter Bold,
+  ItalicFont     = Charter Italic,
+  BoldItalicFont = Charter Bold Italic
+]
+\setsansfont{Helvetica Neue}
+\setmonofont{Menlo}
+
+\pagestyle{empty}
+\pagecolor{white}
+\setlength{\parindent}{0pt}
+\linespread{1.22}
+\setlength{\parskip}{0pt}
+
+% ── 标题样式 ────────────────────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-0.85em}{\color{rule}\rule{\textwidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{1.1em}{0.55em}
+% keep a heading with the content that follows it
+\let\oldSection\section
+\renewcommand{\section}[1]{\needspace{5\baselineskip}\oldSection{#1}}
+
+% ── 列表 ────────────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.35em,
+  topsep=2pt,
+  itemsep=1.5pt,
+  parsep=0pt,
+  label={\color{accent}\footnotesize\textbullet}
+}
+
+% ── 自定义命令 ──────────────────────────────────────────────────────────────
+% \entry{机构}{角色}{时间}{可选说明}
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    {\bfseries #1}\hfill{\itshape\color{muted}#2} & {\small\color{muted}#3}
+  \end{tabularx}%
+  \par\vspace{1.5pt}%
+  \if\relax\detokenize{#4}\relax\else{\small #4}\par\fi
+  \vspace{0.55em}%
+}
+
+% \pub{标题}{作者}{会议}{链接}
+\newcommand{\pub}[4]{%
+  \needspace{4\baselineskip}%
+  \vspace{0.32em}%
+  {\bfseries #1}\par\vspace{0.5pt}%
+  {\small #2}\par\vspace{0.5pt}%
+  {\small\itshape\color{accent}#3}\par\vspace{0.5pt}%
+  {\footnotesize\color{muted}#4}\par
+}
+
+\newcommand{\sep}{\,\textperiodcentered\,}
+
+% ---------------------------------------------------------------------------
+\begin{document}
+
+% ── 抬头 ────────────────────────────────────────────────────────────────────
+\begin{center}
+  {\xingkai\fontsize{34}{40}\selectfont 胡霄星}\\[8pt]
+  {\small
+    \faEnvelope\ \href{mailto:xiaoxinghhh@gmail.com}{xiaoxinghhh@gmail.com}\quad
+    \faPhone\ 15111480307
+  }
+\end{center}
+
+\vspace{-0.35em}
+{\color{rule}\rule{\textwidth}{0.6pt}}
+
+% ── 教育经历 ────────────────────────────────────────────────────────────────
+\section{教育经历}
+
+\entry{上海交通大学}{博士研究生，控制科学与工程}{2026.09 -- 至今}
+  {}
+
+\entry{上海创智学院}{博士研究生（联合培养）}{2026.09 -- 至今}
+  {}
+
+\entry{北京理工大学}{工学硕士，信息与通信工程}{2023.09 -- 2026.06}
+  {}
+
+\entry{中南大学}{工学学士，自动化}{2019.09 -- 2023.06}
+  {}
+
+% ── 研究兴趣 ────────────────────────────────────────────────────────────────
+\section{研究兴趣}
+
+\begin{itemize}
+  \item \textbf{多模态基础模型}：视觉--语言表征对齐、多模态检索与跨模态理解。
+  \item \textbf{音视频理解与评测}：证据可溯源的多模态推理基准与自动化评测方法。
+  \item \textbf{智能体系统}：数据管线设计、框架构建、评测方法与模型优化。
+  \item \textbf{遥感视觉}：视觉基础模型的迁移与域泛化。
+\end{itemize}
+
+% ── 论文发表 ────────────────────────────────────────────────────────────────
+\section{论文发表}
+{\footnotesize\color{muted}\textbf{加粗}为本人。\quad
+ $^{\dagger}$ 共同一作。\quad $^{*}$ 学生一作。\par}
+\vspace{0.2em}
+
+\pub{ProCLIP: Progressive Vision-Language Alignment via LLM-based Embedder}
+  {\textbf{Xiaoxing Hu}, Kaicheng Yang, Ziyang Gong, Qi Ming, Zonghao Guo, Yu Tian, Xiang An,
+   Ziyong Feng, Xue Yang}
+  {NeurIPS 2026 (Spotlight)\sep CCF-A}
+  {\href{https://github.com/VisionXLab/ProCLIP}{代码}\quad\href{https://arxiv.org/abs/2510.18795}{论文}}
+
+\pub{EvaOmni: An Evidence-Grounded Benchmark for Audio-Visual Reasoning}
+  {\textbf{Xiaoxing Hu}, Wenxi Yao, Chaoyuan Shi, Ziqi Ye, Xiaorong Guo, Peixuan Li, Zhuoran Sun,
+   Ziyang Gong, Peiyuan Zhang, Mingxin Liu, Shuran Ma, Hongbo Liu, Xiaomin Yu, Yu Tian, Wentao Wang,
+   Zhenjie Yang, Jian Hu, Yunhang Shen, Haoyu Cao, Xue Yang}
+  {审稿中}
+  {\href{https://xiaoxing2001.github.io/EvaOmni.github.io/}{项目主页}\quad
+   \href{https://github.com/VisionXLab/EvaOmni}{代码}\quad
+   \href{https://arxiv.org/abs/2610.28444}{论文}}
+
+\pub{Earth-Adapter: Bridge the Geospatial Domain Gaps with Mixture of Frequency Adaptation}
+  {\textbf{Xiaoxing Hu}$^{\dagger}$, Ziyang Gong, Yupei Wang, Yuru Jia, Fei Lin, Dexiang Gao, Ke An,
+   Jianhong Han, Zhuoran Sun, Gen Luo, Xue Yang}
+  {AAAI 2026\sep CCF-A}
+  {\href{https://github.com/VisionXLab/Earth-Adapter}{代码}\quad
+   \href{https://arxiv.org/abs/2504.06220}{论文}}
+
+\pub{Decoupled Global-Local Alignment for Improving Compositional Understanding}
+  {\textbf{Xiaoxing Hu}$^{\dagger}$, Kaicheng Yang, Jun Wang, Haoran Xu, Ziyong Feng, Yupei Wang}
+  {ACM MM 2025\sep CCF-A}
+  {\href{https://xiaoxing2001.github.io/DeGLA.github.io/}{项目主页}\quad
+   \href{https://github.com/xiaoxing2001/DeGLA}{代码}\quad
+   \href{https://arxiv.org/abs/2504.16801}{论文}}
+
+\pub{Boosting Domain Generalization in Remote Sensing Image Segmentation via Style Mapping and General Prototypical Contrast}
+  {Yupei Wang, \textbf{Xiaoxing Hu}$^{*}$, Yongkang Hu, Zhuoran Sun, Shanghang Zhang, Liang Chen}
+  {International Journal of Computer Vision (IJCV) 2025\sep CCF-A}
+  {\href{https://link.springer.com/article/10.1007/s11263-025-02568-3}{论文}}
+
+% ── 实习经历 ────────────────────────────────────────────────────────────────
+\section{实习经历}
+
+\entry{腾讯优图\sep 神农研究中心}{研究实习生}{2025.12 -- 2026.09}
+  {\begin{itemize}
+     \item 参与全模态模型研发，负责数据、训练与评测链路的搭建与迭代。
+     \item 设计并实现自动化评测系统，支撑多模态模型的能力对比与回归验证。
+     \item 参与数据集评测与清洗流程建设，撰写并投稿论文一篇（审稿中）。
+   \end{itemize}}
+
+\entry{格灵深瞳\sep 大模型组}{研究实习生}{2025.06 -- 2025.10}
+  {\begin{itemize}
+     \item 负责多模态检索基础模型研究，围绕视觉--语言表征对齐展开实验与分析。
+     \item 相关成果以第一作者投稿，并被 NeurIPS 2026 接收为 Spotlight（ProCLIP）。
+   \end{itemize}}
+
+% ── 荣誉与奖励 ──────────────────────────────────────────────────────────────
+\section{荣誉与奖励}
+
+\begin{itemize}
+  \item \textbf{徐特立奖学金候选}——全校 6 名研究生入选\hfill 2026.06
+  \item \textbf{国家奖学金}\hfill 2025.10
+\end{itemize}
+
+% ── 技能 ────────────────────────────────────────────────────────────────────
+\section{技能}
+
+\begin{itemize}
+  \item \textbf{编程语言}：Python（熟练）、C/C++、Shell
+  \item \textbf{工具}：PyTorch、Hugging Face Transformers、DeepSpeed、Git、\LaTeX
+  \item \textbf{方向技能}：多模态预训练与对齐、指令微调、检索、评测基准构建
+\end{itemize}
+
+\end{document}

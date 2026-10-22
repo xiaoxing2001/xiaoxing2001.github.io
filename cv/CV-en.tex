@@ -1,0 +1,197 @@
+% !TEX program = xelatex
+% ---------------------------------------------------------------------------
+%  Xiaoxing Hu · Academic CV (English)
+%  Build with: xelatex CV-en.tex
+% ---------------------------------------------------------------------------
+\documentclass[a4paper,10.5pt]{article}
+
+\usepackage[left=1.75cm,right=1.75cm,top=1.6cm,bottom=1.6cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{needspace}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{linkcolor=black, urlcolor=black, citecolor=black}
+
+% ── Palette ────────────────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{000000}
+\definecolor{muted}{HTML}{000000}
+\definecolor{rule}{HTML}{000000}
+
+% ── Fonts ──────────────────────────────────────────────────────────────────
+\setmainfont{Charter}[
+  BoldFont       = Charter Bold,
+  ItalicFont     = Charter Italic,
+  BoldItalicFont = Charter Bold Italic
+]
+\setsansfont{Helvetica Neue}
+\setmonofont{Menlo}
+\setCJKmainfont{Songti SC}[BoldFont=Songti SC Bold]
+
+\pagestyle{empty}
+\pagecolor{white}
+\setlength{\parindent}{0pt}
+\linespread{1.15}
+\setlength{\parskip}{0pt}
+
+% ── Section headings ───────────────────────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}
+  [\vspace{-0.85em}{\color{rule}\rule{\textwidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{1.1em}{0.55em}
+% keep a heading with the content that follows it
+\let\oldSection\section
+\renewcommand{\section}[1]{\needspace{5\baselineskip}\oldSection{#1}}
+
+% ── Lists ──────────────────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.35em,
+  topsep=2pt,
+  itemsep=1.5pt,
+  parsep=0pt,
+  label={\color{accent}\footnotesize\textbullet}
+}
+
+% ── Macros ─────────────────────────────────────────────────────────────────
+% \entry{organisation}{role}{dates}{optional note}
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    {\bfseries #1}\hfill{\itshape\color{muted}#2} & {\small\color{muted}#3}
+  \end{tabularx}%
+  \par\vspace{1.5pt}%
+  \if\relax\detokenize{#4}\relax\else{\small #4}\par\fi
+  \vspace{0.55em}%
+}
+
+% \pub{title}{authors}{venue}{links}
+\newcommand{\pub}[4]{%
+  \needspace{4\baselineskip}%
+  \vspace{0.32em}%
+  {\bfseries #1}\par\vspace{0.5pt}%
+  {\small #2}\par\vspace{0.5pt}%
+  {\small\itshape\color{accent}#3}\par\vspace{0.5pt}%
+  {\footnotesize\color{muted}#4}\par
+}
+
+\newcommand{\sep}{\,\textperiodcentered\,}
+
+% ---------------------------------------------------------------------------
+\begin{document}
+
+% ── Header ─────────────────────────────────────────────────────────────────
+\begin{center}
+  {\fontsize{22}{26}\selectfont\bfseries Xiaoxing Hu}\\[6pt]
+  {\small
+    \faEnvelope\ \href{mailto:xiaoxinghhh@gmail.com}{xiaoxinghhh@gmail.com}\quad
+    \faPhone\ 15111480307
+  }
+\end{center}
+
+\vspace{-0.35em}
+{\color{rule}\rule{\textwidth}{0.6pt}}
+
+% ── Education ──────────────────────────────────────────────────────────────
+\section{Education}
+
+\entry{Shanghai Jiao Tong University}{Ph.D. Student, Control Science and Engineering}{Sep. 2026 -- Present}
+  {}
+
+\entry{Shanghai Innovation Institute}{Ph.D. Student (Joint Program)}{Sep. 2026 -- Present}
+  {}
+
+\entry{Beijing Institute of Technology}{M.S., Information and Communication Engineering}{Sep. 2023 -- Jun. 2026}
+  {}
+
+\entry{Central South University}{B.Eng., Automation}{Sep. 2019 -- Jun. 2023}
+  {}
+
+% ── Research interests ─────────────────────────────────────────────────────
+\section{Research Interests}
+
+\begin{itemize}
+  \item Multimodal foundation models: vision--language representation alignment, multimodal retrieval, and cross-modal understanding.
+  \item Audio-visual understanding and evaluation: evidence-grounded reasoning benchmarks and automated evaluation pipelines.
+  \item Agent systems: data pipeline design, framework engineering, evaluation methodology, and model optimization.
+  \item Transfer and domain generalization of vision foundation models for remote sensing imagery.
+\end{itemize}
+
+% ── Publications ───────────────────────────────────────────────────────────
+\section{Publications}
+{\footnotesize\color{muted}\textbf{Bold} denotes the author.\quad
+ $^{\dagger}$ Equal contribution.\quad $^{*}$ Student first author.\par}
+\vspace{0.2em}
+
+\pub{ProCLIP: Progressive Vision-Language Alignment via LLM-based Embedder}
+  {\textbf{Xiaoxing Hu}, Kaicheng Yang, Ziyang Gong, Qi Ming, Zonghao Guo, Yu Tian, Xiang An,
+   Ziyong Feng, Xue Yang}
+  {NeurIPS 2026 (Spotlight)\sep CCF-A}
+  {\href{https://github.com/VisionXLab/ProCLIP}{Code}\quad\href{https://arxiv.org/abs/2510.18795}{Paper}}
+
+\pub{EvaOmni: An Evidence-Grounded Benchmark for Audio-Visual Reasoning}
+  {\textbf{Xiaoxing Hu}, Wenxi Yao, Chaoyuan Shi, Ziqi Ye, Xiaorong Guo, Peixuan Li, Zhuoran Sun,
+   Ziyang Gong, Peiyuan Zhang, Mingxin Liu, Shuran Ma, Hongbo Liu, Xiaomin Yu, Yu Tian, Wentao Wang,
+   Zhenjie Yang, Jian Hu, Yunhang Shen, Haoyu Cao, Xue Yang}
+  {Under Review}
+  {\href{https://xiaoxing2001.github.io/EvaOmni.github.io/}{Project}\quad
+   \href{https://github.com/VisionXLab/EvaOmni}{Code}\quad
+   \href{https://arxiv.org/abs/2610.28444}{Paper}}
+
+\pub{Earth-Adapter: Bridge the Geospatial Domain Gaps with Mixture of Frequency Adaptation}
+  {\textbf{Xiaoxing Hu}$^{\dagger}$, Ziyang Gong, Yupei Wang, Yuru Jia, Fei Lin, Dexiang Gao, Ke An,
+   Jianhong Han, Zhuoran Sun, Gen Luo, Xue Yang}
+  {AAAI 2026\sep CCF-A}
+  {\href{https://github.com/VisionXLab/Earth-Adapter}{Code}\quad
+   \href{https://arxiv.org/abs/2504.06220}{Paper}}
+
+\pub{Decoupled Global-Local Alignment for Improving Compositional Understanding}
+  {\textbf{Xiaoxing Hu}$^{\dagger}$, Kaicheng Yang, Jun Wang, Haoran Xu, Ziyong Feng, Yupei Wang}
+  {ACM MM 2025\sep CCF-A}
+  {\href{https://xiaoxing2001.github.io/DeGLA.github.io/}{Project}\quad
+   \href{https://github.com/xiaoxing2001/DeGLA}{Code}\quad
+   \href{https://arxiv.org/abs/2504.16801}{Paper}}
+
+\pub{Boosting Domain Generalization in Remote Sensing Image Segmentation via Style Mapping and General Prototypical Contrast}
+  {Yupei Wang, \textbf{Xiaoxing Hu}$^{*}$, Yongkang Hu, Zhuoran Sun, Shanghang Zhang, Liang Chen}
+  {International Journal of Computer Vision (IJCV) 2025\sep CCF-A}
+  {\href{https://link.springer.com/article/10.1007/s11263-025-02568-3}{Paper}}
+
+% ── Internships ────────────────────────────────────────────────────────────
+\section{Internships}
+
+\entry{Tencent Youtu Lab \sep ShenNong Research Center}{Research Intern}{Dec. 2025 -- Sep. 2026}
+  {\begin{itemize}
+     \item Contributed to omni-modal model development, owning the data, training, and evaluation loop.
+     \item Designed and built an automated evaluation system for capability comparison and regression testing across multimodal models.
+     \item Helped establish dataset evaluation and cleaning workflows; wrote and submitted one paper (under review).
+   \end{itemize}}
+
+\entry{DeepGlint \sep Foundation Model Group}{Research Intern}{Jun. 2025 -- Oct. 2025}
+  {\begin{itemize}
+     \item Conducted research on multimodal retrieval foundation models, focusing on vision--language representation alignment.
+     \item The resulting first-authored work was accepted to NeurIPS 2026 as a Spotlight (ProCLIP).
+   \end{itemize}}
+
+% ── Honors ─────────────────────────────────────────────────────────────────
+\section{Honors \& Awards}
+
+\begin{itemize}
+  \item \textbf{Xu Teli Scholarship Candidate} --- 6 graduate students selected university-wide\hfill Jun. 2026
+  \item \textbf{National Scholarship}\hfill Oct. 2025
+\end{itemize}
+
+% ── Skills ─────────────────────────────────────────────────────────────────
+\section{Skills}
+
+\begin{itemize}
+  \item \textbf{Languages}: Python (proficient), C/C++, Shell
+  \item \textbf{Tools}: PyTorch, Hugging Face Transformers, DeepSpeed, Git, \LaTeX
+  \item \textbf{Domain}: multimodal pretraining and alignment, instruction tuning, retrieval, benchmark construction
+\end{itemize}
+
+\end{document}

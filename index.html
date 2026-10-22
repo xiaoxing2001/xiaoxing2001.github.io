@@ -1,126 +1,723 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Xiaoxing Hu, Master@Beijing Institute of Technology</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title data-zh="胡霄星 | 个人主页">Xiaoxing Hu | Homepage</title>
+  <meta name="author" content="Xiaoxing Hu">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
+    body, * {
+      cursor: url('images/icon/cursor.png'), auto;
+    }
+    a, a * {
+      cursor: url('images/icon/cursor-pointer.png'), pointer !important;
     }
 
-    header {
-      background-color: #333;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
+    /* ── Name typography ── */
+    name {
+      display: inline-block;
+      line-height: 1.3;
+    }
+    .name-en {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 700;
+      font-size: 32px;
+      letter-spacing: 0.01em;
+    }
+    .name-zh {
+      font-family: '行楷-简', 'Xingkai SC', 'STXingkai', '华文行楷', cursive;
+      font-size: 30px;
+      font-weight: 700;
+      color: #000;
+      margin-left: 4px;
+    }
+    .name-sep {
+      color: #d1d5db;
+      font-weight: 400;
+      margin: 0 6px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
+    /* ── Language switch ── */
+    .lang-switch {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      z-index: 100;
+      font-family: 'Lato', Verdana, sans-serif;
+      font-size: 12px;
+      padding: 5px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      color: #6e3519;
+      cursor: url('images/icon/cursor-pointer.png'), pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .lang-switch:hover {
+      background: #fff7df;
+      border-color: #fba524;
+      color: #111;
     }
 
-    section {
-      padding: 20px;
+    /* ── Publication rows ── */
+    .pub-row > td {
+      border-top: 1px solid rgba(0, 0, 0, 0.10);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+      background: #fff;
+      vertical-align: top;
     }
-
-    .section-title {
-      font-size: 1.8em;
-      margin-bottom: 10px;
+    .pub-row > td:first-child {
+      border-left: 1px solid rgba(0, 0, 0, 0.10);
+      border-radius: 8px 0 0 8px;
+      padding: 18px 10px 18px 18px;
+      width: 30%;
     }
-
-    .contact-info a {
-      color: #007BFF;
-      text-decoration: none;
+    .pub-row > td:last-child {
+      border-right: 1px solid rgba(0, 0, 0, 0.10);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px 18px 12px;
+      width: 70%;
     }
-
-    .contact-info a:hover {
-      text-decoration: underline;
+    .pub-row.featured > td {
+      background: #FFFEE0;
     }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: absolute;
-      bottom: 0;
+    .pub-thumb {
+      display: block;
       width: 100%;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: #fafafa;
+      object-fit: contain;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .pub-thumb:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+    }
+    .pub-authors {
+      color: #4b5563;
+      line-height: 1.6;
+    }
+    .pub-authors strong {
+      color: #111;
+    }
+    .pub-links {
+      font-size: 13px;
+    }
+    .venue-badge {
+      display: inline-block;
+      padding: 0 7px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .venue-accepted {
+      color: #b42318;
+      background: rgba(180, 35, 24, 0.07);
+    }
+    .venue-review {
+      color: #6b7280;
+      background: rgba(107, 114, 128, 0.09);
+    }
+    .ccf-badge {
+      display: inline-block;
+      padding: 0 7px;
+      border: 1px solid rgba(173, 112, 32, 0.45);
+      border-radius: 3px;
+      background: #fff7df;
+      color: #8a5c00;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.55;
+      white-space: nowrap;
+      vertical-align: 1px;
+    }
+    .pub-tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 0 6px;
+      border-radius: 3px;
+      background: #ad7020;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      vertical-align: 1px;
+    }
+
+    /* ── Experience logo box ── */
+    .school-logo {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      background: linear-gradient(135deg, #fdf6e3, #f3e8d0);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 9px;
+      line-height: 1.2;
+      color: #8a5c00;
+      letter-spacing: 0.02em;
+      padding: 6px;
+    }
+    .school-logo span {
+      display: block;
+      font-size: 17px;
+      font-weight: 700;
+      color: #ad7020;
+      letter-spacing: 0.04em;
+      margin-bottom: 1px;
+    }
+    .school-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .school-logos img {
+      display: block;
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .school-logos img:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    }
+    .school-logos.single img {
+      width: 88px;
+      height: 88px;
+    }
+
+    /* Company logos in the Internship section: wide wordmarks need a
+       rectangular frame instead of the circular school-logo treatment. */
+    .company-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 104px;
+      height: 104px;
+      margin: 0 auto;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .company-logo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    }
+    .company-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    /* ── Misc list ── */
+    .misc-list li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    /* ── Toast ── */
+    .toast-message {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translate(-50%, -120%);
+      background: rgba(255, 255, 255, 0.92);
+      color: #333;
+      padding: 8px 18px;
+      border-radius: 20px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      font-family: 'Lato', Verdana, sans-serif;
+      font-size: 13px;
+      z-index: 2000;
+      opacity: 0;
+      transition: all 0.28s ease;
+      pointer-events: none;
+    }
+    .toast-message.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
     }
   </style>
 </head>
-
 <body>
-  <!-- Header Section -->
-  <header>
-    <!-- <h1>Xiaoxing Hu, Master@Beijing Institute of Technology</h1> -->
-    <p>Xiaoxinghu | Master Student | Beijing Institute of Technology</p>
-  </header>
 
-  <!-- About Section -->
-  <section>
-    <h2 class="section-title">About Me</h2>
-    <p>Hello! I am Xiaoxing Hu, a second-year master student at Beijing Institute of Technology. I specialize in [Briefly describe your field of study, e.g., Computer Vision, Natural Language Processing].</p>
-    <p>My current research focuses on [Briefly describe your current research project]. I am passionate about [Mention any other research interests or topics].</p>
-  </section>
+  <button type="button" class="lang-switch" id="langSwitch" title="切换语言 / Switch language">中文</button>
 
-  <!-- Research Interests Section -->
-  <section>
-    <h2 class="section-title">Research Interests</h2>
-    <ul>
-      <li>[Research Interest 1]</li>
-      <li>[Research Interest 2]</li>
-      <li>[Research Interest 3]</li>
-      <li>[Research Interest 4]</li>
-    </ul>
-  </section>
+  <table id="about" class="page-section" style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
 
-  <!-- Projects Section -->
-  <section>
-    <h2 class="section-title">Selected Projects</h2>
-    <ul>
-      <li><a href="[Project Link 1]" target="_blank">[Project 1 Name]</a> - Brief description of your project.</li>
-      <li><a href="[Project Link 2]" target="_blank">[Project 2 Name]</a> - Brief description of your project.</li>
-      <li><a href="[Project Link 3]" target="_blank">[Project 3 Name]</a> - Brief description of your project.</li>
-    </ul>
-  </section>
+        <!-- ==================== Profile ==================== -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:68%;vertical-align:middle">
+              <p style="text-align:center;margin:0 0 16px">
+                <name><span class="name-en">Xiaoxing Hu</span><span class="name-sep">|</span><span class="name-zh" data-zh="胡霄星">胡霄星</span></name>
+              </p>
+              <p data-zh="我于 2026 年起在上海交通大学与上海创智学院进行联合联培，我的导师是上海交通大学助理教授<a href=&quot;https://yangxue.site/&quot;>杨学</a>。此前在北京理工大学信息与通信工程专业获得硕士学位，本科毕业于中南大学自动化专业。此前，我的研究兴趣包括 <strong>基础视觉模型及遥感图像交叉应用</strong>、<strong>跨模态表征与对齐</strong> 和 <strong>(音)视频理解评测</strong>。">
+                I am a Ph.D. student in a joint program between Shanghai Jiao Tong University and Shanghai Innovation
+                Institute starting in 2026, advised by Assistant Professor <a href="https://yangxue.site/">Xue Yang</a>
+                at Shanghai Jiao Tong University. I received my M.S. in Information and Communication Engineering from
+                Beijing Institute of Technology, and my B.Eng. in Automation from Central South University. My previous
+                research interests include <strong>foundation vision models and their applications in remote sensing</strong>,
+                <strong>cross-modal representation and alignment</strong>, and
+                <strong>audio-video understanding and evaluation</strong>.
+              </p>
+              <p data-zh="现在我的研究兴趣关注 Agent，包括数据管线、框架设计、评测方法和模型优化等。">
+                My current research focuses on <strong>AI Agents</strong>, spanning data pipelines, framework design,
+                evaluation methods, and model optimization.
+              </p>
 
-  <!-- Publications Section -->
-  <section>
-    <h2 class="section-title">Publications</h2>
-    <ul>
-      <li><a href="[Publication Link 1]" target="_blank">[Title of Publication 1]</a> - [Brief Description]</li>
-      <li><a href="[Publication Link 2]" target="_blank">[Title of Publication 2]</a> - [Brief Description]</li>
-      <li><a href="[Publication Link 3]" target="_blank">[Title of Publication 3]</a> - [Brief Description]</li>
-    </ul>
-  </section>
+              <div style="width: 100%; height: 1px; background: linear-gradient(to right, transparent, #ccc 20%, #ccc 80%, transparent); margin: 10px 0;"></div>
 
-  <!-- Contact Section -->
-  <section>
-    <h2 class="section-title">Contact Me</h2>
-    <p>If you'd like to get in touch with me, feel free to email me at <a href="mailto:[your.email@example.com]">[your.email@example.com]</a>.</p>
-    <div class="contact-info">
-      <p>Also, you can connect with me on the following platforms:</p>
-      <ul>
-        <li><a href="[LinkedIn URL]" target="_blank">LinkedIn</a></li>
-        <li><a href="[Twitter URL]" target="_blank">Twitter</a></li>
-        <li><a href="[Google Scholar URL]" target="_blank">Google Scholar</a></li>
-      </ul>
-    </div>
-  </section>
+              <p class="contact-links">
+                <span class="contact-line">
+                  <a href="mailto:xiaoxinghhh@gmail.com" class="email-link copy-value" data-copy="xiaoxinghhh@gmail.com" title="Click to copy email">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                      <path d="m3 7 9 6 9-6"></path>
+                    </svg>
+                    <span data-zh="邮箱">Email:</span> <span class="contact-sub">xiaoxinghhh@gmail.com</span>
+                  </a>
+                  &nbsp;/&nbsp;
+                  <a href="tel:15111480307" class="phone-link copy-value" data-copy="15111480307" title="Click to copy phone">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"></path>
+                    </svg>
+                    <span data-zh="电话">Tel:</span> <span class="contact-sub">15111480307</span>
+                  </a>
+                  &nbsp;/&nbsp;
+                  <a href="javascript:void(0)" class="wechat-link copy-value" data-copy="15111480307" title="Click to copy WeChat ID">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8.7 3C4.6 3 1.3 5.8 1.3 9.2c0 1.9 1 3.5 2.7 4.7l-.7 2.2 2.5-1.3c.9.3 1.9.4 2.9.4h.6a5.6 5.6 0 0 1-.2-1.5c0-3.2 3.1-5.8 6.9-5.8h.6C16.1 5.2 12.8 3 8.7 3Zm-2.4 3.4a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm4.9 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Z"></path>
+                      <path d="M22.7 13.7c0-2.9-2.8-5.2-6.2-5.2s-6.2 2.3-6.2 5.2 2.8 5.2 6.2 5.2c.8 0 1.5-.1 2.2-.3l2 1.1-.6-1.8c1.6-1 2.6-2.5 2.6-4.2Zm-8.2-1.5a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4.1 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z"></path>
+                    </svg>
+                    <span data-zh="微信">WeChat:</span> <span class="contact-sub">15111480307</span>
+                  </a>
+                </span>
+                <span class="contact-line">
+                  <a href="https://scholar.google.com/citations?user=zBM8_XkAAAAJ&hl=zh-CN" target="_blank" rel="noopener" title="Google Scholar">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3 1.5 9 12 15 22.5 9 12 3Z"></path>
+                      <path d="M5 12.1v4.2c0 1.2 3.1 3.2 7 3.2s7-2 7-3.2v-4.2l-7 4-7-4Z"></path>
+                    </svg>
+                    Google Scholar
+                  </a>
+                  &nbsp;/&nbsp;
+                  <a href="https://github.com/xiaoxing2001" target="_blank" rel="noopener" title="GitHub">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 .5C5.7.5.6 5.6.6 11.9c0 5 3.3 9.3 7.9 10.8.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.5 2.7 3.2 1.9.1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.6.1-3.1 0 0 1-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.8.1 3.1.8.9 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.8C23.4 5.6 18.3.5 12 .5Z"></path>
+                    </svg>
+                    GitHub
+                  </a>
+                  &nbsp;/&nbsp;
+                  <a href="cv/CV-zh.pdf" target="_blank" rel="noopener" title="中文简历">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path>
+                      <path d="M14 2v6h6"></path>
+                      <path d="M8 13h8"></path>
+                      <path d="M8 17h5"></path>
+                    </svg>
+                    <span data-zh="中文简历">CV (ZH)</span>
+                  </a>
+                  &nbsp;/&nbsp;
+                  <a href="cv/CV-en.pdf" target="_blank" rel="noopener" title="English CV">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path>
+                      <path d="M14 2v6h6"></path>
+                      <path d="M8 13h8"></path>
+                      <path d="M8 17h5"></path>
+                    </svg>
+                    CV (EN)
+                  </a>
+                </span>
+              </p>
+            </td>
+            <td style="padding:2.5%;width:40%;max-width:40%">
+              <img style="width:85%;max-width:85%;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.08);" alt="Portrait of Xiaoxing Hu" src="images/photo.jpg">
+            </td>
+          </tr>
+        </tbody></table>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>© [2025] [Xiaoxing Hu]. All Rights Reserved.</p>
+        <!-- ==================== News ==================== -->
+        <table id="news" class="page-section" style="width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:0px;width:100%;vertical-align:middle">
+              <br>
+              <heading data-zh="最新动态">News</heading>
+              <ul class="news-list">
+                <li class="news-item">
+                  <span class="news-dot"></span>
+                  <span class="news-body">
+                    <span class="news-date-badge">Oct. 2026</span>
+                    <span data-zh="<a href=&quot;https://arxiv.org/pdf/2610.28444&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>EvaOmni</a> 正式开源。"><a href="https://arxiv.org/pdf/2610.28444" target="_blank" rel="noopener">EvaOmni</a> is officially open-sourced.</span>
+                  </span>
+                </li>
+                <li class="news-item">
+                  <span class="news-dot"></span>
+                  <span class="news-body">
+                    <span class="news-date-badge">Sep. 2026</span>
+                    <span data-zh="<a href=&quot;https://arxiv.org/pdf/2510.18795&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>ProCLIP</a> 被 NeurIPS 2026 接收为 Spotlight。"><a href="https://arxiv.org/pdf/2510.18795" target="_blank" rel="noopener">ProCLIP</a> accepted to <span class="news-highlight">NeurIPS 2026</span> as Spotlight.</span>
+                  </span>
+                </li>
+                <li class="news-item">
+                  <span class="news-dot"></span>
+                  <span class="news-body">
+                    <span class="news-date-badge">Sep. 2026</span>
+                    <span data-zh="开始在<a href=&quot;https://sais.sjtu.edu.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>上海交通大学</a>与<a href=&quot;https://www.sii.edu.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>上海创智学院</a>进行联合培养。">Started the joint Ph.D. program at <a href="https://sais.sjtu.edu.cn/" target="_blank" rel="noopener">Shanghai Jiao Tong University</a> and <a href="https://www.sii.edu.cn/" target="_blank" rel="noopener">Shanghai Innovation Institute</a>.</span>
+                  </span>
+                </li>
+              </ul>
+              <br>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <!-- ==================== Publications ==================== -->
+        <table id="publications" class="page-section publications-table" style="width:96%;border:0px;border-spacing:0 12px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <heading data-zh="代表性论文">Selected Publications</heading>
+          <br><br>
+          <p style="margin:0;color:#6b7280;font-size:13px">
+            <span data-zh="标黄为代表性工作。">Featured work is <span style="background-color:#FFFEE0;padding:0 3px;">highlighted</span>.</span>
+            <span data-zh="完整的论文列表请参见">For the full list of publications, please refer to</span>
+            <a href="https://scholar.google.com/citations?user=zBM8_XkAAAAJ&hl=zh-CN" target="_blank" rel="noopener">Google Scholar</a>.
+          </p>
+          <br>
+
+          <tbody>
+            <tr class="pub-row">
+              <td>
+                <img class="pub-thumb" src="images/evaomni.png" alt="EvaOmni overview figure">
+              </td>
+              <td>
+                <a href="https://arxiv.org/abs/2610.28444">
+                  <papertitle>EvaOmni: An Evidence-Grounded Benchmark for Audio-Visual Reasoning</papertitle>
+                </a>
+                <br>
+                <div class="pub-authors">
+                  <strong>Xiaoxing Hu</strong>, Wenxi Yao, Chaoyuan Shi, Ziqi Ye, Xiaorong Guo, Peixuan Li,
+                  Zhuoran Sun, Ziyang Gong, Peiyuan Zhang, Mingxin Liu, Shuran Ma, Hongbo Liu, Xiaomin Yu,
+                  Yu Tian, Wentao Wang, Zhenjie Yang, Jian Hu, Yunhang Shen, Haoyu Cao, Xue Yang
+                </div>
+                <div class="pub-links">
+                  <a href="https://xiaoxing2001.github.io/EvaOmni.github.io/">Project</a>
+                  &nbsp;/&nbsp;
+                  <a href="https://github.com/VisionXLab/EvaOmni">Code</a>
+                  &nbsp;/&nbsp;
+                  <a href="https://arxiv.org/abs/2610.28444">Paper</a>
+                </div>
+                <div class="pub-links" style="margin-top:4px">
+                  <span class="venue-badge venue-review">Under Review</span> <span class="pub-tag" data-zh="第一作者">First Author</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="pub-row featured">
+              <td>
+                <img class="pub-thumb" src="images/proCLIP.png" alt="ProCLIP framework overview">
+              </td>
+              <td>
+                <a href="https://arxiv.org/abs/2510.18795">
+                  <papertitle>ProCLIP: Progressive Vision-Language Alignment via LLM-based Embedder</papertitle>
+                </a>
+                <br>
+                <div class="pub-authors">
+                  <strong>Xiaoxing Hu</strong>, Kaicheng Yang, Ziyang Gong, Qi Ming, Zonghao Guo, Yu Tian,
+                  Xiang An, Ziyong Feng, Xue Yang
+                </div>
+                <div class="pub-links">
+                  <a href="https://github.com/VisionXLab/ProCLIP">Code</a>
+                  &nbsp;/&nbsp;
+                  <a href="https://arxiv.org/abs/2510.18795">Paper</a>
+                </div>
+                <div class="pub-links" style="margin-top:4px">
+                  <span class="venue-badge venue-accepted">NeurIPS 2026 (Spotlight)</span> <span class="ccf-badge" title="CCF-A conference">CCF-A</span> <span class="pub-tag" data-zh="第一作者">First Author</span>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="pub-row">
+              <td>
+                <img class="pub-thumb" src="images/earth_adapter.png" alt="Earth-Adapter architecture figure">
+              </td>
+              <td>
+                <a href="https://arxiv.org/abs/2504.06220">
+                  <papertitle>Earth-Adapter: Bridge the Geospatial Domain Gaps with Mixture of Frequency Adaptation</papertitle>
+                </a>
+                <br>
+                <div class="pub-authors">
+                  <strong>Xiaoxing Hu</strong>, Ziyang Gong, Yupei Wang, Yuru Jia, Fei Lin, Dexiang Gao,
+                  Ke An, Jianhong Han, Zhuoran Sun, Gen Luo, Xue Yang
+                </div>
+                <div class="pub-links">
+                  <a href="https://github.com/VisionXLab/Earth-Adapter">Code</a>
+                  &nbsp;/&nbsp;
+                  <a href="https://arxiv.org/abs/2504.06220">Paper</a>
+                </div>
+                <div class="pub-links" style="margin-top:4px">
+                  <span class="venue-badge venue-accepted">AAAI 2026</span> <span class="ccf-badge" title="CCF-A conference">CCF-A</span> <span class="pub-tag" data-zh="共同一作">Co-First Author</span>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="pub-row">
+              <td>
+                <img class="pub-thumb" src="images/DeGLA.png" alt="DeGLA framework overview">
+              </td>
+              <td>
+                <a href="https://arxiv.org/abs/2504.16801">
+                  <papertitle>Decoupled Global-Local Alignment for Improving Compositional Understanding</papertitle>
+                </a>
+                <br>
+                <div class="pub-authors">
+                  <strong>Xiaoxing Hu</strong>, Kaicheng Yang, Jun Wang, Haoran Xu, Ziyong Feng, Yupei Wang
+                </div>
+                <div class="pub-links">
+                  <a href="https://xiaoxing2001.github.io/DeGLA.github.io/">Project</a>
+                  &nbsp;/&nbsp;
+                  <a href="https://github.com/xiaoxing2001/DeGLA">Code</a>
+                  &nbsp;/&nbsp;
+                  <a href="https://arxiv.org/abs/2504.16801">Paper</a>
+                </div>
+                <div class="pub-links" style="margin-top:4px">
+                  <span class="venue-badge venue-accepted">ACM MM 2025</span> <span class="ccf-badge" title="CCF-A conference">CCF-A</span> <span class="pub-tag" data-zh="共同一作">Co-First Author</span>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="pub-row">
+              <td>
+                <img class="pub-thumb" src="images/IJCV.png" alt="IJCV paper overview">
+              </td>
+              <td>
+                <a href="https://link.springer.com/article/10.1007/s11263-025-02568-3">
+                  <papertitle>Boosting Domain Generalization in Remote Sensing Image Segmentation via Style Mapping and General Prototypical Contrast</papertitle>
+                </a>
+                <br>
+                <div class="pub-authors">
+                  Yupei Wang, <strong>Xiaoxing Hu</strong>, Yongkang Hu, Zhuoran Sun, Shanghang Zhang, Liang Chen
+                </div>
+                <div class="pub-links">
+                  <a href="https://link.springer.com/article/10.1007/s11263-025-02568-3">Paper</a>
+                </div>
+                <div class="pub-links" style="margin-top:4px">
+                  <span class="venue-badge venue-accepted">IJCV 2025</span> <span class="ccf-badge" title="CCF-A journal">CCF-A</span> <span class="pub-tag" data-zh="学生一作">Student First Author</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ==================== Education ==================== -->
+        <table id="education" class="page-section" width="96%" align="center" border="0" cellpadding="10"><tbody>
+          <br>
+          <heading data-zh="教育经历">Education</heading>
+          <br><br>
+          <tr>
+            <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle">
+              <div class="school-logos single">
+                <img src="images/sjtu.png" alt="Shanghai Jiao Tong University logo">
+              </div>
+            </td>
+            <td width="80%" valign="center">
+              <strong data-zh="博士研究生 · 上海交通大学">Ph.D. Student · Shanghai Jiao Tong University</strong>
+              <br>2026.09 – Present
+              <br><span data-zh="导师：助理教授 杨学">Advisor: Assistant Professor <a href="https://yangxue.site/">Xue Yang</a></span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle">
+              <div class="school-logos single">
+                <img src="images/sii.jpg" alt="Shanghai Innovation Institute logo">
+              </div>
+            </td>
+            <td width="80%" valign="center">
+              <strong data-zh="博士研究生 · 上海创智学院（联合培养）">Ph.D. Student · Shanghai Innovation Institute (Joint Program)</strong>
+              <br>2026.09 – Present
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle">
+              <div class="school-logos single">
+                <img src="images/bit.png" alt="Beijing Institute of Technology logo">
+              </div>
+            </td>
+            <td width="80%" valign="center">
+              <strong data-zh="硕士 · 北京理工大学 信息与通信工程">M.S. · Beijing Institute of Technology, Information and Communication Engineering</strong>
+              <br>2023.09 – 2026.06
+              <br><span data-zh="信息与通信工程">Information and Communication Engineering</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle">
+              <div class="school-logos single">
+                <img src="images/csu.png" alt="Central South University logo">
+              </div>
+            </td>
+            <td width="80%" valign="center">
+              <strong data-zh="本科 · 中南大学 自动化">B.Eng. · Central South University, Automation</strong>
+              <br>2019.09 – 2023.06
+              <br><span data-zh="自动化">Automation</span>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <!-- ==================== Internship ==================== -->
+        <table id="internship" class="page-section" width="96%" align="center" border="0" cellpadding="10"><tbody>
+          <br>
+          <heading data-zh="实习经历">Internship</heading>
+          <br><br>
+          <tr>
+            <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle">
+              <div class="company-logo">
+                <img src="images/youtu.png" alt="Tencent Youtu Lab logo">
+              </div>
+            </td>
+            <td width="80%" valign="center">
+              <strong data-zh="腾讯优图 · 神农研究中心研究实习生">Tencent Youtu Lab · Research Intern, ShenNong Research Center</strong>
+              <br>2025.12 – 2026.09
+              <br><span data-zh="参与全模态模型的研发，设计并搭建自动化评测系统；参与数据集评测与清洗；撰写并投稿一篇论文（审稿中）。">Worked on omni-modal model development: designed and built an automated evaluation system, contributed to dataset evaluation and cleaning, and wrote and submitted one paper (under review).</span>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle">
+              <div class="company-logo">
+                <img src="images/DeepGlint.png" alt="DeepGlint logo">
+              </div>
+            </td>
+            <td width="80%" valign="center">
+              <strong data-zh="格灵深瞳 · 大模型组研究实习生">DeepGlint · Research Intern, Foundation Model Group</strong>
+              <br>2025.06 – 2025.10
+              <br><span data-zh="负责多模态检索基础模型相关研究，投稿一篇论文并被 NeurIPS 2026 接收为 Spotlight。">Conducted research on multimodal retrieval foundation models; one first-authored paper was accepted to NeurIPS 2026 as a Spotlight.</span>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <!-- ==================== Honors & Awards ==================== -->
+        <table id="awards" class="page-section" style="width:96%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:0px;width:100%;vertical-align:middle">
+              <br>
+              <heading data-zh="荣誉与奖励">Honors &amp; Awards</heading>
+              <br><br>
+              <ul class="misc-list" style="padding-left:20px;margin:0">
+                <li>2026.06 <span data-zh="徐特立奖学金候选（全校 6 名研究生入选）">Xu Teli Scholarship Candidate (6 graduate students selected university-wide)</span></li>
+                <li>2025.10 <span data-zh="国家奖学金">National Scholarship</span></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody></table>
+
+      </td>
+    </tr>
+  </tbody></table>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="site-footer">
+    <span class="site-footer-updated"><span data-zh="最后更新：">Last updated:</span> October 2026.</span>
   </footer>
-</body>
 
+  <button id="backToTop" onclick="scrollToTop()" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <div id="toast" class="toast-message"><span data-zh="已复制">Copied</span></div>
+
+  <script>
+    // ── Back to top ──
+    (function () {
+      var btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        btn.classList.toggle('visible', window.scrollY > 300);
+      });
+    })();
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── Toast / copy ──
+    function copyText(text) {
+      var toast = document.getElementById('toast');
+      var show = function () {
+        toast.classList.add('show');
+        setTimeout(function () { toast.classList.remove('show'); }, 1800);
+      };
+      navigator.clipboard.writeText(text).then(show).catch(function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); show(); } catch (e) {}
+        document.body.removeChild(ta);
+      });
+    }
+
+    document.querySelectorAll('.copy-value').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (el.tagName === 'A' && el.getAttribute('href') === 'javascript:void(0)') e.preventDefault();
+        copyText(el.dataset.copy);
+      });
+    });
+  </script>
+
+  <script>
+    // ── Language toggle ──
+    (function () {
+      var STORAGE_KEY = 'site-lang';
+      var nodes = document.querySelectorAll('[data-zh]');
+      var button = document.getElementById('langSwitch');
+
+      nodes.forEach(function (el) { el.dataset.en = el.innerHTML; });
+
+      function applyLang(lang) {
+        nodes.forEach(function (el) { el.innerHTML = el.dataset[lang]; });
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        button.textContent = lang === 'zh' ? 'EN' : '中文';
+        button.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换到中文');
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+      }
+
+      var saved = null;
+      try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+      applyLang(saved === 'zh' ? 'zh' : 'en');
+
+      button.addEventListener('click', function () {
+        var cur = 'en';
+        try { cur = localStorage.getItem(STORAGE_KEY) || 'en'; } catch (e) {}
+        applyLang(cur === 'zh' ? 'en' : 'zh');
+      });
+    })();
+  </script>
+</body>
 </html>
