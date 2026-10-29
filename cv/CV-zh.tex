@@ -24,8 +24,9 @@
 \definecolor{rule}{HTML}{000000}
 
 % ── 字体 ────────────────────────────────────────────────────────────────────
-\setCJKmainfont{Songti SC}[BoldFont=Songti SC Bold]
+\setCJKmainfont{Kaiti SC}[BoldFont=Songti SC Bold]
 \newCJKfontfamily\xingkai{行楷-简}[BoldFont=行楷-简 粗体]
+\newCJKfontfamily\kaiti{Kaiti SC}[BoldFont=Kaiti SC Bold]
 \setmainfont{Charter}[
   BoldFont       = Charter Bold,
   ItalicFont     = Charter Italic,
@@ -63,10 +64,10 @@
 % \entry{机构}{角色}{时间}{可选说明}
 \newcommand{\entry}[4]{%
   \begin{tabularx}{\textwidth}{@{}X r@{}}
-    {\bfseries #1}\hfill{\itshape\color{muted}#2} & {\small\color{muted}#3}
+    {\bfseries #1}\hfill{\kaiti\itshape\color{muted}#2} & {\kaiti\small\color{muted}#3}
   \end{tabularx}%
   \par\vspace{1.5pt}%
-  \if\relax\detokenize{#4}\relax\else{\small #4}\par\fi
+  \if\relax\detokenize{#4}\relax\else{\kaiti\small #4}\par\fi
   \vspace{0.55em}%
 }
 
@@ -75,9 +76,9 @@
   \needspace{4\baselineskip}%
   \vspace{0.32em}%
   {\bfseries #1}\par\vspace{0.5pt}%
-  {\small #2}\par\vspace{0.5pt}%
-  {\small\itshape\color{accent}#3}\par\vspace{0.5pt}%
-  {\footnotesize\color{muted}#4}\par
+  {\kaiti\small #2}\par\vspace{0.5pt}%
+  {\kaiti\small\itshape\color{accent}#3}\par\vspace{0.5pt}%
+  {\kaiti\footnotesize\color{muted}#4}\par
 }
 
 \newcommand{\sep}{\,\textperiodcentered\,}
@@ -106,12 +107,6 @@
 \entry{上海创智学院}{博士研究生（联合培养）}{2026.09 -- 至今}
   {}
 
-\entry{北京理工大学}{工学硕士，信息与通信工程}{2023.09 -- 2026.06}
-  {}
-
-\entry{中南大学}{工学学士，自动化}{2019.09 -- 2023.06}
-  {}
-
 % ── 研究兴趣 ────────────────────────────────────────────────────────────────
 \section{研究兴趣}
 
@@ -119,7 +114,7 @@
   \item \textbf{多模态基础模型}：视觉--语言表征对齐、多模态检索与跨模态理解。
   \item \textbf{音视频理解与评测}：证据可溯源的多模态推理基准与自动化评测方法。
   \item \textbf{智能体系统}：数据管线设计、框架构建、评测方法与模型优化。
-  \item \textbf{遥感视觉}：视觉基础模型的迁移与域泛化。
+  \item \textbf{视觉基础模型}：视觉基础模型的迁移与域泛化。
 \end{itemize}
 
 % ── 论文发表 ────────────────────────────────────────────────────────────────
@@ -182,8 +177,8 @@
 \section{荣誉与奖励}
 
 \begin{itemize}
-  \item \textbf{徐特立奖学金候选}——全校 6 名研究生入选\hfill 2026.06
-  \item \textbf{国家奖学金}\hfill 2025.10
+  \item {\kaiti\bfseries 徐特立奖学金候选}——全校 6 名研究生入选\hfill {\small 2026.06}
+  \item {\kaiti\bfseries 国家奖学金}\hfill {\small 2025.10}
 \end{itemize}
 
 % ── 技能 ────────────────────────────────────────────────────────────────────
