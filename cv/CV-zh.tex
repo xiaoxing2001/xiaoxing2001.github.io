@@ -27,6 +27,8 @@
 \setCJKmainfont{Kaiti SC}[BoldFont=Songti SC Bold]
 \newCJKfontfamily\xingkai{行楷-简}[BoldFont=行楷-简 粗体]
 \newCJKfontfamily\kaiti{Kaiti SC}[BoldFont=Kaiti SC Bold]
+\newCJKfontfamily\xhei{Heiti SC}[BoldFont=Heiti SC, ItalicFont=Heiti SC,
+  BoldFeatures={FakeBold=1.8}, ItalicFeatures={FakeSlant=0.2}]
 \setmainfont{Charter}[
   BoldFont       = Charter Bold,
   ItalicFont     = Charter Italic,
@@ -91,7 +93,9 @@
   {\xingkai\fontsize{34}{40}\selectfont 胡霄星}\\[8pt]
   {\small
     \faEnvelope\ \href{mailto:xiaoxinghhh@gmail.com}{xiaoxinghhh@gmail.com}\quad
-    \faPhone\ 15111480307
+    \faPhone\ 15111480307\quad
+    \faWeixin\ 15111480307\quad
+    \faGoogle\ \href{https://scholar.google.com/citations?user=zBM8_XkAAAAJ&hl=zh-CN}{Google Scholar}
   }
 \end{center}
 
@@ -110,23 +114,21 @@
 % ── 研究兴趣 ────────────────────────────────────────────────────────────────
 \section{研究兴趣}
 
-\begin{itemize}
-  \item \textbf{多模态基础模型}：视觉--语言表征对齐、多模态检索与跨模态理解。
-  \item \textbf{音视频理解与评测}：证据可溯源的多模态推理基准与自动化评测方法。
-  \item \textbf{智能体系统}：数据管线设计、框架构建、评测方法与模型优化。
-  \item \textbf{视觉基础模型}：视觉基础模型的迁移与域泛化。
-\end{itemize}
+{\xhei\bfseries 研究经历：}过往研究聚焦于视觉基础模型及其遥感交叉应用、跨模态表征与对齐，以及（音）视频理解与评测。具体工作涵盖视觉--语言对齐与多模态检索、证据可溯源的多模态推理基准与自动化评测，以及视觉基础模型的迁移学习与域泛化。
+
+\vspace{0.45em}
+{\xhei\bfseries 当前研究兴趣：}聚焦于智能体全栈技术，涵盖模型、数据、系统架构及大语言模型后训练（OPD、MOPD、SWE-OPD）等方向。
 
 % ── 论文发表 ────────────────────────────────────────────────────────────────
 \section{论文发表}
-{\footnotesize\color{muted}\textbf{加粗}为本人。\quad
- $^{\dagger}$ 共同一作。\quad $^{*}$ 学生一作。\par}
+{\xhei\bfseries\footnotesize\color{muted}加粗为本人。\quad
+ $^{*}$ 共同一作。\quad $^{\dagger}$ 通讯作者。\quad $^{\ddagger}$ 学生一作。\par}
 \vspace{0.2em}
 
 \pub{EvaOmni: An Evidence-Grounded Benchmark for Audio-Visual Reasoning}
   {\textbf{Xiaoxing Hu}, Wenxi Yao, Chaoyuan Shi, Ziqi Ye, Xiaorong Guo, Peixuan Li, Zhuoran Sun,
    Ziyang Gong, Peiyuan Zhang, Mingxin Liu, Shuran Ma, Hongbo Liu, Xiaomin Yu, Yu Tian, Wentao Wang,
-   Zhenjie Yang, Jian Hu, Yunhang Shen, Haoyu Cao, Xue Yang}
+   Zhenjie Yang, Jian Hu, Yunhang Shen, Haoyu Cao, Xue Yang$^{\dagger}$}
   {审稿中}
   {\href{https://xiaoxing2001.github.io/EvaOmni.github.io/}{项目主页}\quad
    \href{https://github.com/VisionXLab/EvaOmni}{代码}\quad
@@ -134,26 +136,26 @@
 
 \pub{ProCLIP: Progressive Vision-Language Alignment via LLM-based Embedder}
   {\textbf{Xiaoxing Hu}, Kaicheng Yang, Ziyang Gong, Qi Ming, Zonghao Guo, Yu Tian, Xiang An,
-   Ziyong Feng, Xue Yang}
+   Ziyong Feng, Xue Yang$^{\dagger}$}
   {NeurIPS 2026 (Spotlight)\sep CCF-A}
   {\href{https://github.com/VisionXLab/ProCLIP}{代码}\quad\href{https://arxiv.org/abs/2510.18795}{论文}}
 
 \pub{Earth-Adapter: Bridge the Geospatial Domain Gaps with Mixture of Frequency Adaptation}
-  {\textbf{Xiaoxing Hu}$^{\dagger}$, Ziyang Gong, Yupei Wang, Yuru Jia, Fei Lin, Dexiang Gao, Ke An,
-   Jianhong Han, Zhuoran Sun, Gen Luo, Xue Yang}
+  {\textbf{Xiaoxing Hu}$^{*}$, Ziyang Gong$^{*}$, Yupei Wang$^{\dagger}$, Yuru Jia, Fei Lin, Dexiang Gao, Ke An,
+   Jianhong Han, Zhuoran Sun, Gen Luo, Xue Yang$^{\dagger}$}
   {AAAI 2026\sep CCF-A}
   {\href{https://github.com/VisionXLab/Earth-Adapter}{代码}\quad
    \href{https://arxiv.org/abs/2504.06220}{论文}}
 
 \pub{Decoupled Global-Local Alignment for Improving Compositional Understanding}
-  {\textbf{Xiaoxing Hu}$^{\dagger}$, Kaicheng Yang, Jun Wang, Haoran Xu, Ziyong Feng, Yupei Wang}
+  {\textbf{Xiaoxing Hu}$^{*}$, Kaicheng Yang$^{*}$, Jun Wang, Haoran Xu, Ziyong Feng, Yupei Wang$^{\dagger}$}
   {ACM MM 2025\sep CCF-A}
   {\href{https://xiaoxing2001.github.io/DeGLA.github.io/}{项目主页}\quad
    \href{https://github.com/xiaoxing2001/DeGLA}{代码}\quad
    \href{https://arxiv.org/abs/2504.16801}{论文}}
 
 \pub{Boosting Domain Generalization in Remote Sensing Image Segmentation via Style Mapping and General Prototypical Contrast}
-  {Yupei Wang, \textbf{Xiaoxing Hu}$^{*}$, Yongkang Hu, Zhuoran Sun, Shanghang Zhang, Liang Chen}
+  {Yupei Wang, \textbf{Xiaoxing Hu}$^{\ddagger}$, Yongkang Hu, Zhuoran Sun, Shanghang Zhang, Liang Chen$^{\dagger}$}
   {International Journal of Computer Vision (IJCV) 2025\sep CCF-A}
   {\href{https://link.springer.com/article/10.1007/s11263-025-02568-3}{论文}}
 
@@ -163,7 +165,7 @@
 \entry{腾讯优图\sep 神农研究中心}{研究实习生}{2025.12 -- 2026.09}
   {\begin{itemize}
      \item 参与全模态模型研发，负责数据、训练与评测链路的搭建与迭代。
-     \item 设计并实现自动化评测系统，支撑多模态模型的能力对比与回归验证。
+     \item 参与办公智能体评测体系搭建，针对 PPT-Agent 执行轨迹引入基于 Rubric 的 LLM-as-a-Judge 自动化评测机制，支撑智能体能力评估与迭代验证。
      \item 参与数据集评测与清洗流程建设，撰写并投稿论文一篇（审稿中）。
    \end{itemize}}
 
